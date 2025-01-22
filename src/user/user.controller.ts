@@ -40,7 +40,7 @@ export class UserController {
 
   @Get(':id')
   async show(@ParamId() id: number) {
-    return this.usersService.findById(id);
+    return this.usersService.show(id);
   }
 
   @Put(':id')

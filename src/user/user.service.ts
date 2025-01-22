@@ -20,8 +20,8 @@ export class UserService {
   ) {}
 
   async create(data: CreateUserDTO) {
-    const userAlreadyExists = await this.usersRespository.findOneBy({
-      email: data.email,
+    const userAlreadyExists = await this.usersRespository.exists({
+      where: { email: data.email },
     });
 
     if (userAlreadyExists) {
@@ -34,18 +34,15 @@ export class UserService {
 
     const user = this.usersRespository.create(data);
 
-    this.usersRespository.save(user);
-
-    return user;
+    return this.usersRespository.save(user);
   }
 
   async list() {
     return this.usersRespository.find();
   }
 
-  async findById(id: number) {
+  async show(id: number) {
     await this.exists(id);
-
     return this.usersRespository.findOneBy({ id });
   }
 
@@ -61,7 +58,7 @@ export class UserService {
       birthAt: data.birthAt ? new Date(data.birthAt) : null,
     });
 
-    return this.findById(id);
+    return this.show(id);
   }
 
   async updatePartial(
@@ -87,12 +84,13 @@ export class UserService {
 
     await this.usersRespository.update(id, data);
 
-    return this.findById(id);
+    return this.show(id);
   }
 
   async delete(id: number) {
     await this.exists(id);
-    return this.usersRespository.delete(id);
+    await this.usersRespository.delete(id);
+    return true;
   }
 
   async exists(id: number) {

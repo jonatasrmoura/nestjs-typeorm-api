@@ -1,0 +1,55 @@
+import { Role } from '../enums/role.enum';
+import { UserEntity } from '../user/entity/user.entity';
+
+export const userEntityList: UserEntity[] = [
+  {
+    id: 1,
+    name: `Jorge da Silva`,
+    email: `jorge@example.com`,
+    birthAt: new Date('2000-01-01'),
+    role: Role.User,
+    password: '$2b$10$FJwbX5pjXSRBbREhR0x1deSojcNP0jtZvy2i0Fk.b2PAUX/fyCYEW',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 2,
+    name: `Leticia`,
+    email: `leticia@example.com`,
+    birthAt: new Date('2000-01-01'),
+    role: Role.User,
+    password: '$2b$10$FJwbX5pjXSRBbREhR0x1deSojcNP0jtZvy2i0Fk.b2PAUX/fyCYEW',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 3,
+    name: `Jonatas Moura`,
+    email: `jonatas@example.com`,
+    birthAt: new Date('2000-01-01'),
+    role: Role.User,
+    password: '$2b$10$FJwbX5pjXSRBbREhR0x1deSojcNP0jtZvy2i0Fk.b2PAUX/fyCYEW',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 4,
+    name: `Bruno Silva`,
+    email: `bruno@example.com`,
+    birthAt: new Date('2000-01-01'),
+    role: Role.User,
+    password: '$2b$10$FJwbX5pjXSRBbREhR0x1deSojcNP0jtZvy2i0Fk.b2PAUX/fyCYEW',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 5,
+    name: `Mateus Morais`,
+    email: `mateus@example.com`,
+    birthAt: new Date('2000-01-01'),
+    role: Role.User,
+    password: '$2b$10$FJwbX5pjXSRBbREhR0x1deSojcNP0jtZvy2i0Fk.b2PAUX/fyCYEW',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+];

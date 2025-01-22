@@ -131,7 +131,7 @@ export class AuthService {
 
       await this.usersRespository.update(id, { password });
 
-      const user = await this.userService.findById(id);
+      const user = await this.userService.show(id);
 
       return this.createToken(user);
     } catch (e) {
