@@ -30,12 +30,12 @@ import { UserEntity } from './user/entity/user.entity';
         host: 'smtp.ethereal.email',
         port: 587,
         auth: {
-          user: 'leslie.cummings59@ethereal.email',
-          pass: 'prsWh7KpFtDaM7hmyZ',
+          user: 'mina.reichel15@ethereal.email',
+          pass: '4SGHFJcRPr74TKrQCx',
         },
       },
       defaults: {
-        from: '"Hcode" <leslie.cummings59@ethereal.email>',
+        from: '"Hcode" <mina.reichel15@ethereal.email>',
       },
       template: {
         dir: __dirname + '/templates',

@@ -4,11 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-
-import { UserModule } from 'src/user/user.module';
-import { FileModule } from 'src/file/file.module';
-
-import { UserEntity } from 'src/user/entity/user.entity';
+import { UserModule } from '../user/user.module';
+import { FileModule } from '../file/file.module';
+import { UserEntity } from '../user/entity/user.entity';
 
 @Module({
   imports: [

@@ -4,9 +4,9 @@ import { UserEntity } from '../user/entity/user.entity';
 export const userEntityList: UserEntity[] = [
   {
     id: 1,
-    name: `Jorge da Silva`,
-    email: `jorge@example.com`,
-    birthAt: new Date('2000-01-01'),
+    name: `Glaucio Daniel`,
+    email: `glaucio@hcode.com`,
+    birthAt: null,
     role: Role.User,
     password: '$2b$10$FJwbX5pjXSRBbREhR0x1deSojcNP0jtZvy2i0Fk.b2PAUX/fyCYEW',
     createdAt: new Date(),
