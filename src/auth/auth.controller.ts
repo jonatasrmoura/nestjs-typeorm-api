@@ -81,18 +81,10 @@ export class AuthController {
     )
     photo: Express.Multer.File,
   ) {
-    const path = join(
-      __dirname,
-      '../',
-      '../',
-      'storage',
-      'photos',
-      `photo-${user.id}.png`,
-    );
+    const fileName = `photo-${user.id}.png`;
 
     try {
-      await this.fileService.upload(photo, path);
-
+      await this.fileService.upload(photo, fileName);
       return { sucess: true };
     } catch (e) {
       throw new BadRequestException(e);
