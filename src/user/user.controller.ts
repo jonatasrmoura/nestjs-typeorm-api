@@ -55,6 +55,8 @@ export class UserController {
 
   @Delete(':id')
   async delete(@ParamId() id: number) {
-    return this.usersService.delete(id);
+    return {
+      success: await this.usersService.delete(id),
+    };
   }
 }
