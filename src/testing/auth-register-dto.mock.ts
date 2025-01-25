@@ -1,7 +1,7 @@
 import { AuthRegisterDTO } from '../auth/dto/auth-register.dto';
 import { Role } from '../enums/role.enum';
 
-export const authRegisterDtoMock: AuthRegisterDTO = {
+export const authRegisterDto: AuthRegisterDTO = {
   name: `Jonas Oliveira`,
   email: `jonas@example.com`,
   birthAt: '2000-01-01',

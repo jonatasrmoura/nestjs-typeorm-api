@@ -17,14 +17,12 @@ import {
   FilesInterceptor,
   FileFieldsInterceptor,
 } from '@nestjs/platform-express';
-import { join } from 'path';
 
 import { AuthLoginDTO } from './dto/auth-login.dto';
 import { AuthRegisterDTO } from './dto/auth-register.dto';
 import { AuthForgetDTO } from './dto/auth-forget.dto';
 import { AuthResetDTO } from './dto/auth-reset.dto';
 import { AuthService } from './auth.service';
-import { UserService } from '../user/user.service';
 import { FileService } from '../file/file.service';
 import { AuthGuard } from '../guards/auth.guard';
 import { UserEntity } from '../user/entity/user.entity';
@@ -33,7 +31,6 @@ import { User } from '../decorators/user.decorator';
 @Controller('auth')
 export class AuthController {
   constructor(
-    private readonly userService: UserService,
     private readonly authService: AuthService,
     private readonly fileService: FileService,
   ) {}
@@ -60,8 +57,8 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Post('me')
-  async me(@User() user: UserEntity, @Req() { tokenPayload }) {
-    return { user, tokenPayload };
+  async me(@User() user: UserEntity) {
+    return user;
   }
 
   @UseInterceptors(FileInterceptor('file'))
@@ -85,10 +82,11 @@ export class AuthController {
 
     try {
       await this.fileService.upload(photo, fileName);
-      return { sucess: true };
     } catch (e) {
       throw new BadRequestException(e);
     }
+
+    return photo;
   }
 
   @UseInterceptors(FilesInterceptor('files'))

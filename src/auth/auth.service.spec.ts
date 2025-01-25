@@ -10,7 +10,7 @@ import { userEntityList } from '../testing/user.entity-list.mock';
 import { accessToken } from '../testing/access-token.mock';
 import { jwtPayload } from '../testing/jwt-payload.mock';
 import { resetToken } from '../testing/reset-token.mock';
-import { authRegisterDtoMock } from '../testing/auth-register-dto.mock';
+import { authRegisterDto } from '../testing/auth-register-dto.mock';
 
 describe('AuthService', () => {
   let authService: AuthService;
@@ -62,7 +62,7 @@ describe('AuthService', () => {
 
     test('forgot Method', async () => {
       const result = await authService.forget('glaucio@hcode.com');
-      expect(result).toEqual(true);
+      expect(result).toEqual({ success: true });
     });
 
     test('reset Method', async () => {
@@ -71,7 +71,7 @@ describe('AuthService', () => {
     });
 
     test('register Method', async () => {
-      const result = await authService.register(authRegisterDtoMock);
+      const result = await authService.register(authRegisterDto);
       expect(result).toEqual({ accessToken });
     });
   });
