@@ -61,7 +61,7 @@ export class AuthService {
     try {
       this.checkToken(token);
       return true;
-    } catch (e) {
+    } catch {
       return false;
     }
   }

@@ -5,8 +5,8 @@ import { Observable, tap } from 'rxjs';
 export class LogInterceptor implements NestInterceptor {
   intercept(
     context: ExecutionContext,
-    next: CallHandler<any>,
-  ): Observable<any> | Promise<Observable<any>> {
+    next: CallHandler<ExecutionContext>,
+  ): Observable<ExecutionContext> | Promise<Observable<ExecutionContext>> {
     const dt = Date.now();
 
     return next.handle().pipe(
